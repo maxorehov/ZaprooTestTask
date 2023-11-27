@@ -1,0 +1,35 @@
+<?php
+/** @var $block Zaproo\Hobby\Block\EditHobby */
+?>
+<form class="form form-edit-account"
+      action="<?= $block->escapeUrl($block->getUrl('hobby/edit/save')) ?>"
+      method="post" id="form-validate"
+      enctype="multipart/form-data"
+      data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
+      autocomplete="off">
+
+
+    <fieldset style="float: unset" class="fieldset additional_info">
+        <label class="label" for="hobby">
+            <span><?= $block->escapeHtml(__('Select Your Hobby')) ?></span>
+        </label>
+        <select name="hobby" id="hobby">
+            <?php foreach ($block->getHobbyOptions() as $option) : ?>
+            <option value="<?= $option['value']?>" title="<?= $option['label']?>"><?= __($option['label'])?></option>
+            <?php endforeach; ?>
+        </select>
+    </fieldset>
+
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action save primary" title="<?= $block->escapeHtmlAttr(__('Save')) ?>">
+                <span><?= $block->escapeHtml(__('Save')) ?></span>
+            </button>
+        </div>
+        <div class="secondary">
+            <a class="action back" style="display: block" href="<?= $block->escapeUrl($block->getBackUrl()) ?>">
+                <span><?= $block->escapeHtml(__('Go back')) ?></span>
+            </a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,25 @@
+<?php
+    /**
+     * @var $block \Magento\Framework\View\Element\Template
+     * @var $viewModel \Zaproo\Hobby\ViewModel\CustomerHobby
+     */
+
+    $viewModel = $block->getViewModel();
+?>
+
+<div class="block block-dashboard-additional-info">
+    <div class="block-title"><strong><?= $block->escapeHtml(__('Customer Hobby')) ?></strong></div>
+    <div class="box-content">
+        <p>
+            <?= $viewModel->getCustomerHobby($block->getCustomer()) ?>
+        </p>
+        <div class="box-actions">
+            <a class="action edit" href="<?= $block->escapeUrl($block->getUrl('hobby/edit')) ?>">
+                <span>Edit</span>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,19 @@
+type Query {
+    customerHobbyRequest(customerId: Int): CustomerHobbyResponse
+    @resolver(class: "Zaproo\\Hobby\\Model\\Resolver\\GetCustomerHobby")
+    @cache(cacheable: false)
+}
+
+type Mutation {
+    changeCustomerHobbyRequest(hobby: String): CustomerOutput
+    @resolver(class: "Zaproo\\Hobby\\Model\\Resolver\\ChangeCustomerHobby")
+    @cache(cacheable: false)
+}
+
+type CustomerHobbyResponse {
+    hobby: String!
+}
+
+type Customer {
+    hobby: String
+}
